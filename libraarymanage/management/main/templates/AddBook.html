@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway');
+
+
+.info-text {
+	font-size: 1rem;
+}
+
+.wrapper {
+	margin-left: 550px;
+}
+
+.login-box {
+		background: #fff;
+		width: 300px;
+		height: 400px;
+		box-shadow: 5px 5px 5px 1px rgba(255,0,0,0.3);
+		text-align: center;
+		padding: 20px;
+}
+
+.form-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-container .input-addon {
+	margin-top: 1.5rem;
+    height: 30px;
+}
+
+.form-element {
+	margin-top: 1
+	rem;
+	height: 2rem;
+	border: 2px solid #d2d6de;
+	padding: 5px;
+	font-size: .9rem;
+}
+
+.form-element:focus {
+	outline: 1px solid #673ab7;
+}
+
+.form-element::placeholder {
+	font-family: 'Raleway', sans-serif;
+	font-size: .8rem;
+}
+
+.form-element.is-submit {
+	height: 3rem;
+	font-size: 1rem;
+	line-height: normal;
+	font-family: 'Raleway', sans-serif;
+	background: #E0A140;
+	color: #fff;
+}
+
+.input-addon {
+	display: flex;
+}
+
+.input-addon > .form-element {
+	margin-top: 0;
+}
+
+.input-field {
+	flex: 1;
+}
+
+.input-addon-item {
+	padding: 5px;
+	width: 35px;
+	border: 1px solid #d2d6de;
+	border-left: 0;
+	background: #fff;
+	color: #6a6b6d;
+}
+
+</style>
+<div class="wrapper">
+	<div class="login-box">
+		<h3 class="info-text">Add a Book</h3>
+		<form class="form-container" action="AddBook" method="POST">
+            {% csrf_token %}
+			<div class="input-addon">
+				<input class="form-element input-field" placeholder="Name" type="text" name='Title' required>
+
+
+			</div>
+			<div class="input-addon">
+				<input class="form-element input-field" placeholder="BookCode" type="text" name='id' required>
+
+			</div>
+			<div class="input-addon">
+				<input class="form-element input-field" placeholder="Author" type="text" name='Author' required>
+
+			</div>
+			<div class="input-addon">
+				<input class="form-element input-field" placeholder="Department" type="text" name='Department' required>
+
+			</div>
+			<input class="form-element is-submit" type="submit" value="Add a Book">
+		</form>
+
+	</div>
+</div>
+{% endblock content %}
